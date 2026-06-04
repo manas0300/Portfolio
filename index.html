@@ -728,7 +728,7 @@
             .project-grid-reverse,
             .contact-grid {
                 grid-template-columns: 1fr;
-                gap: 40px;
+                gap: 30px;
             }
 
             .skills-grid {
@@ -740,27 +740,101 @@
             }
 
             .hero-title {
-                font-size: 48px;
+                font-size: 42px;
             }
         }
 
         @media (max-width: 768px) {
+            .section {
+                padding: 60px 0;
+            }
+
+            .project-block {
+                padding: 20px;
+                margin-bottom: 30px;
+            }
+
+            .about-card {
+                padding: 20px;
+            }
+
             .video-grid {
                 grid-template-columns: 1fr;
+                gap: 10px;
             }
-        }
 
-        @media (max-width: 600px) {
-            .skills-grid {
-                grid-template-columns: 1fr;
+            .video-container {
+                aspect-ratio: 16/9;
             }
-            
+
             .nav-links {
-                display: none; /* simple collapse for mobile screen size */
+                display: none; /* Hide header navigation links on mobile viewports */
             }
 
             .hero-title {
-                font-size: 36px;
+                font-size: 34px;
+            }
+
+            .hero-tagline {
+                font-size: 14px;
+                margin-bottom: 25px;
+            }
+
+            h2 {
+                font-size: 26px;
+                margin-bottom: 20px;
+            }
+
+            .contact-info-card {
+                grid-column: span 1 !important; /* Fix LinkedIn grid column span overflow */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .project-block {
+                padding: 15px;
+            }
+
+            .about-card {
+                padding: 15px;
+            }
+
+            .hero-title {
+                font-size: 28px;
+            }
+
+            .hero-subtitle {
+                font-size: 11px;
+                letter-spacing: 4px;
+            }
+
+            h2 {
+                font-size: 22px;
+            }
+
+            h3 {
+                font-size: 18px;
+            }
+
+            p, .bullet-list li {
+                font-size: 13px;
+                line-height: 1.5;
+            }
+
+            .logo {
+                font-size: 16px;
+            }
+
+            .snippets-grid {
+                gap: 10px;
+            }
+
+            .contact-cta h2 {
+                margin-bottom: 10px;
             }
         }
     </style>
