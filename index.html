@@ -1,0 +1,1478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muddam Manas — Creative Portfolio</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Design System Variables */
+        :root {
+            --bg-color: #07080a;
+            --bg-accent: #0f1116;
+            --card-bg: rgba(16, 18, 25, 0.7);
+            --card-border: rgba(197, 168, 128, 0.12);
+            --border-glow: rgba(197, 168, 128, 0.35);
+            --gold-accent: #c5a880;
+            --gold-light: #e6d3ba;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --max-width: 1200px;
+            --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Modern Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Outfit', sans-serif;
+            color: var(--text-main);
+            letter-spacing: -0.5px;
+        }
+
+        h2 {
+            font-size: 36px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--gold-accent);
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--gold-accent);
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 14.5px;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+
+        strong {
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        /* Helper Classes */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        .section {
+            padding: 100px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header p {
+            max-width: 600px;
+            margin: 10px auto 0;
+            font-size: 16px;
+        }
+
+        /* Sticky Glassmorphism Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 70px;
+            background-color: rgba(7, 8, 10, 0.8);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            font-family: 'Outfit', sans-serif;
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: var(--gold-accent);
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 13.5px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1.5px;
+            background-color: var(--gold-accent);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--text-main);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        #hero {
+            height: 100vh;
+            min-height: 650px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(rgba(7, 8, 10, 0.75), rgba(7, 8, 10, 0.98)), url('portfolio_assets/cover_bg.png');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .hero-subtitle {
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 6px;
+            color: var(--gold-accent);
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .hero-title {
+            font-size: 64px;
+            font-weight: 900;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--text-main) 30%, var(--gold-accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 4px 30px rgba(0,0,0,0.5);
+        }
+
+        .hero-tagline {
+            font-size: 16px;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 35px;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border: 1px solid var(--gold-accent);
+            background-color: rgba(197, 168, 128, 0.05);
+            color: var(--text-main);
+            font-family: 'Outfit', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+
+        .hero-btn:hover {
+            background-color: var(--gold-accent);
+            color: #000;
+            box-shadow: 0 0 15px rgba(197, 168, 128, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-muted);
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.6;
+        }
+
+        .scroll-indicator span {
+            width: 1.5px;
+            height: 30px;
+            background-color: var(--gold-accent);
+            display: block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* About Section */
+        #about .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .about-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            padding: 35px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            transition: var(--transition);
+        }
+
+        .about-card:hover {
+            border-color: var(--border-glow);
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 20px;
+            border-left: 1.5px solid var(--card-border);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -27px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--gold-accent);
+            border: 3px solid var(--bg-color);
+        }
+
+        .timeline-date {
+            font-family: 'Outfit', sans-serif;
+            font-size: 12px;
+            color: var(--gold-accent);
+            font-weight: 700;
+            margin-bottom: 3px;
+        }
+
+        .timeline-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .timeline-school {
+            font-size: 13.5px;
+            color: var(--text-muted);
+        }
+
+        .domain-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .domain-tag {
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 4px;
+            padding: 5px 12px;
+            font-size: 12px;
+            color: var(--text-main);
+        }
+
+        /* Case Study Layouts */
+        .project-block {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            padding: 40px;
+            margin-bottom: 60px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            transition: var(--transition);
+        }
+
+        .project-block:hover {
+            border-color: var(--border-glow);
+        }
+
+        .project-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .project-grid-reverse {
+            grid-template-columns: 1.3fr 1fr;
+        }
+
+        .project-info {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .project-meta {
+            border-left: 2px solid var(--card-border);
+            padding-left: 15px;
+            margin: 20px 0;
+        }
+
+        .project-meta-item {
+            margin-bottom: 12px;
+        }
+
+        .project-meta-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .meta-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--gold-accent);
+            font-weight: 500;
+        }
+
+        .meta-value {
+            font-size: 13.5px;
+            color: var(--text-main);
+        }
+
+        .bullet-list {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .bullet-list li {
+            font-size: 14px;
+            color: var(--text-muted);
+            position: relative;
+            padding-left: 18px;
+            margin-bottom: 10px;
+        }
+
+        .bullet-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--gold-accent);
+            font-weight: bold;
+        }
+
+        /* Media Presentation (Players Grid & Snippets) */
+        .project-media {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Responsive 2-column Grid for Multiple Videos */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            width: 100%;
+        }
+
+        .video-container {
+            width: 100%;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background-color: #000;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+            position: relative;
+            aspect-ratio: 16/9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            outline: none;
+        }
+
+        .snippets-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 4px;
+        }
+
+        .snippets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+        }
+
+        .snippet-card {
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            aspect-ratio: 16/9;
+            cursor: pointer;
+            position: relative;
+            background-color: #0c0d12;
+            transition: var(--transition);
+        }
+
+        .snippet-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .snippet-card:hover {
+            border-color: var(--gold-accent);
+            box-shadow: 0 4px 15px rgba(197, 168, 128, 0.2);
+        }
+
+        .snippet-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .snippet-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.7);
+            font-size: 9px;
+            padding: 3px;
+            text-align: center;
+            color: var(--text-main);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .snippet-card:hover .snippet-label {
+            opacity: 1;
+        }
+
+        /* Skills Matrix */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-left: 3px solid var(--gold-accent);
+            border-radius: 4px;
+            padding: 25px;
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .skill-card:hover {
+            border-color: var(--border-glow);
+            box-shadow: 0 5px 20px rgba(197, 168, 128, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .skill-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
+        .skill-desc {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* Contact Details */
+        .contact-section {
+            background: linear-gradient(rgba(7, 8, 10, 0.85), rgba(7, 8, 10, 0.99)), url('portfolio_assets/cover_bg.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .contact-cta {
+            max-width: 450px;
+        }
+
+        .contact-cta h2 {
+            margin-bottom: 20px;
+        }
+
+        .contact-info-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .contact-info-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 6px;
+            padding: 25px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: var(--transition);
+        }
+
+        .contact-info-card:hover {
+            border-color: var(--border-glow);
+            transform: translateY(-2px);
+        }
+
+        .contact-card-icon {
+            font-size: 28px;
+            color: var(--gold-accent);
+            width: 40px;
+            text-align: center;
+        }
+
+        .contact-card-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+        }
+
+        .contact-card-value {
+            font-family: 'Outfit', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .contact-card-value a {
+            color: var(--text-main);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .contact-card-value a:hover {
+            color: var(--gold-accent);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid rgba(255,255,255,0.03);
+            padding: 40px 0;
+            text-align: center;
+            background-color: #050608;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        footer .gold-accent {
+            color: var(--gold-accent);
+            text-transform: uppercase;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        /* Image Expansion Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(5,6,8,0.95);
+            backdrop-filter: blur(10px);
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 85%;
+            border-radius: 6px;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+            object-fit: contain;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            font-size: 35px;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            color: var(--text-main);
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 968px) {
+            #about .about-grid,
+            .project-grid,
+            .project-grid-reverse,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-info-list {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-title {
+                font-size: 48px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                display: none; /* simple collapse for mobile screen size */
+            }
+
+            .hero-title {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- STICKY GLASSMORPHISM HEADER -->
+    <header>
+        <div class="container nav-container">
+            <a href="#hero" class="logo">Muddam Manas</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#animation">Animation & 3D</a></li>
+                <li><a href="#vfx">VFX & Compositing</a></li>
+                <li><a href="#film">Film & Storyboard</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="hero">
+        <div class="hero-content">
+            <div class="hero-subtitle">Creative Portfolio</div>
+            <h1 class="hero-title">Muddam Manas</h1>
+            <p class="hero-tagline">Animation, VFX, and Filmmaking student specializing in narrative storytelling, environment design, and digital compositing pipelines.</p>
+            <a href="#about" class="hero-btn">Explore Work</a>
+        </div>
+        <div class="scroll-indicator">
+            <span></span>
+            Scroll
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-card">
+                    <h2>Creative Profile</h2>
+                    <p style="margin-bottom: 20px;">
+                        I am a B.Tech student in <strong>Computation and Media</strong> at <strong>Mahindra University</strong>. My passion lies in merging narrative design with technology, combining visual graphics, physical simulations, and post-production to create immersive storytelling.
+                    </p>
+                    <p style="margin-bottom: 25px;">
+                        With experience leading small-crew short films, rigging game levels, and executing compositing sheets, I am seeking an internship to apply and grow my creative skillset in production pipelines.
+                    </p>
+                    <h3>Core Competencies</h3>
+                    <div class="domain-tags">
+                        <div class="domain-tag">2D/3D Animation</div>
+                        <div class="domain-tag">Chroma Keying</div>
+                        <div class="domain-tag">Matchmoving & Tracking</div>
+                        <div class="domain-tag">Environment Reconstruction</div>
+                        <div class="domain-tag">Post-Production & Sound</div>
+                        <div class="domain-tag">Directing & Screenplay Layout</div>
+                    </div>
+                </div>
+                
+                <div class="about-card">
+                    <h2>Education Timeline</h2>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-date">2023 — 2027 (Expected)</div>
+                            <div class="timeline-title">B.Tech in Computation and Media</div>
+                            <div class="timeline-school">Mahindra University, Hyderabad</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-date">2021 — 2022</div>
+                            <div class="timeline-title">12th Grade (PCM - CBSE)</div>
+                            <div class="timeline-school">Meluha International School, Hyderabad</div>
+                        </div>
+                    </div>
+                    
+                    <h3 style="margin-top: 30px; margin-bottom: 15px;">Additional Profile Info</h3>
+                    <p style="font-size: 13.5px; margin-bottom: 8px;"><strong>Languages Spoken:</strong> English, Telugu, Hindi, French</p>
+                    <p style="font-size: 13.5px;"><strong>Interests:</strong> Cricket, Taekwondo, Swimming, Gaming</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ANIMATION & 3D WORK -->
+    <section id="animation" class="section" style="background-color: var(--bg-accent);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Animation & 3D Modeling</h2>
+                <p>Environment designs, dynamic simulation renders, and student short film pipelines.</p>
+            </div>
+
+            <!-- PROJECT 1: FALLEN GRACE -->
+            <div class="project-block">
+                <div class="project-grid">
+                    <div class="project-info">
+                        <h3>Fallen Grace</h3>
+                        <p style="font-size: 13px; color: var(--gold-accent); margin-bottom: 10px;">Animated Short Film (2023)</p>
+                        <p class="project-desc">
+                            An original student animation. Built around character-centered storytelling, the film relies on painterly, hand-drawn environment details paired with high-contrast backlighting.
+                        </p>
+                        <ul class="bullet-list">
+                            <li>Managed storyboarding, layout drafts, and keyframe layout in a two-member team.</li>
+                            <li>Executed final character animation sheets and vector background composites.</li>
+                            <li>Rendered digital camera motions and atmospheric timings in After Effects.</li>
+                        </ul>
+                        <div class="project-meta">
+                            <div class="project-meta-item">
+                                <div class="meta-label">Responsibilities</div>
+                                <div class="meta-value">Co-Direction, Storyboarding, Compositing, Character Animation</div>
+                            </div>
+                            <div class="project-meta-item">
+                                <div class="meta-label">Primary Tools</div>
+                                <div class="meta-value">Adobe Photoshop, After Effects, Creative Suite</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-media">
+                        <!-- SINGLE VIDEO (FULL WIDTH) -->
+                        <div class="video-container">
+                            <video src="Animation & 3d Modelling/FALLEN GRACE.mov" controls preload="metadata"></video>
+                        </div>
+                        
+                        <div>
+                            <div class="snippets-title">Scenic Frame Snippets (Click to Expand)</div>
+                            <div class="snippets-grid">
+                                <div class="snippet-card" onclick="openModal(this)">
+                                    <img src="portfolio_assets/fallen_grace_1.png" alt="Fallen Grace backlighting environment render">
+                                    <div class="snippet-label">Backlight Scene</div>
+                                </div>
+                                <div class="snippet-card" onclick="openModal(this)">
+                                    <img src="portfolio_assets/fallen_grace_2.png" alt="Fallen Grace character sketch overlay">
+                                    <div class="snippet-label">Composite Layout</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROJECT 2: DHOLAVIRA 3D -->
+            <div class="project-block">
+                <div class="project-grid">
+                    <div class="project-info">
+                        <h3>Dholavira 3D</h3>
+                        <p style="font-size: 13px; color: var(--gold-accent); margin-bottom: 10px;">Unreal Engine Historical Walkthrough</p>
+                        <p class="project-desc">
+                            A historical 3D reconstruction layout of the ancient Harappan city Dholavira, focusing on accurate structural spacing, citadel gates, and complex ancient reservoir systems.
+                        </p>
+                        <ul class="bullet-list">
+                            <li>Modelers built stone walls, modular block columns, and city layouts using site references.</li>
+                            <li>Engineered natural sunlight levels, shadows, and volumetric sand fog in Unreal Engine.</li>
+                            <li>Integrated responsive fluid layers inside reservoir channels to simulate ancient water depth.</li>
+                        </ul>
+                        <div class="project-meta">
+                            <div class="project-meta-item">
+                                <div class="meta-label">Focus Areas</div>
+                                <div class="meta-value">3D Environment Modeling, Lighting Design, Fluid Layers, Walkthroughs</div>
+                            </div>
+                            <div class="project-meta-item">
+                                <div class="meta-label">Primary Tools</div>
+                                <div class="meta-value">Unreal Engine, Blender</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-media">
+                        <!-- VIDEO GRID (SIDE BY SIDE) -->
+                        <div class="video-grid">
+                            <div class="video-container">
+                                <video src="Animation & 3d Modelling/Dholavira3D_walkthrough.mp4" controls preload="metadata"></video>
+                            </div>
+                            <div class="video-container">
+                                <video src="Animation & 3d Modelling/Dholavira3D_360.mp4" controls preload="metadata"></video>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="snippets-title">Citadel & Layout Snippets (Click to Expand)</div>
+                            <div class="snippets-grid">
+                                <div class="snippet-card" onclick="openModal(this)">
+                                    <img src="portfolio_assets/dholavira_1.png" alt="Dholavira Citadel render in Unreal Engine">
+                                    <div class="snippet-label">Walkthrough Citadel</div>
+                                </div>
+                                <div class="snippet-card" onclick="openModal(this)">
+                                    <img src="portfolio_assets/dholavira_2.png" alt="Dholavira 360 camera turnaround">
+                                    <div class="snippet-label">360 Panorama View</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROJECT 3: LIGHTING & SIMULATION STUDIES -->
+            <div class="project-block">
+                <div class="project-grid">
+                    <div class="project-info">
+                        <h3>3D Simulation Studies</h3>
+                        <p style="font-size: 13px; color: var(--gold-accent); margin-bottom: 10px;">Boat Render & Desert Environments</p>
+                        <p class="project-desc">
+                            A set of rendering tasks detailing physics behavior, environment modeling, and lighting structures across challenging scenes.
+                        </p>
+                        <ul class="bullet-list">
+                            <li><strong>Boat Render:</strong> Dynamic fluid particle generation simulating waves, matching wood textures, and styling volumetric surface fog.</li>
+                            <li><strong>Dune Environment:</strong> Sculpted desert landscapes using erosion nodes, layering fine sand materials, and setting light rays.</li>
+                        </ul>
+                        <div class="project-meta">
+                            <div class="project-meta-item">
+                                <div class="meta-label">Focus Areas</div>
+                                <div class="meta-value">Fluid Simulations, Volume Shading, Dunes Sculpting</div>
+                            </div>
+                            <div class="project-meta-item">
+                                <div class="meta-label">Primary Tools</div>
+                                <div class="meta-value">Blender, Unreal Engine</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-media">
+                        <!-- VIDEO GRID (SIDE BY SIDE) -->
+                        <div class="video-grid">
+                            <div class="video-container">
+                                <video src="Animation & 3d Modelling/Boat Render.mp4" controls preload="metadata"></video>
+                            </div>
+                            <div class="video-container">
+                                <video src="Vfx & Comp/DuneEnviRender.mp4" controls preload="metadata"></video>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="snippets-title">Simulation Snippets (Click to Expand)</div>
+                            <div class="snippets-grid">
+                                <div class="snippet-card" onclick="openModal(this)">
+                                    <img src="portfolio_assets/boat_render.png" alt="Wooden boat simulation render">
+                                    <div class="snippet-label">Boat Render Detail</div>
+                                </div>
+                                <div class="snippet-card" onclick="openModal(this)">
+                                    <img src="portfolio_assets/dune_render.png" alt="Dune environment texture render">
+                                    <div class="snippet-label">Dune Environment</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- VFX & COMPOSITING -->
+    <section id="vfx" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>VFX & Compositing</h2>
+                <p>Motion tracking, chroma keying, digital cosmetic timing, and environmental integrations.</p>
+            </div>
+
+            <!-- PROJECT 4: VFX COMPOSITING REEL -->
+            <div class="project-block">
+                <div class="project-grid">
+                    <div class="project-info">
+                        <h3>VFX Compositing Reel</h3>
+                        <p style="font-size: 13px; color: var(--gold-accent); margin-bottom: 10px;">Composite Plate Breakdown</p>
+                        <p class="project-desc">
+                            A breakdown of cleanups and overlay composites, representing the integration of motion elements on active footage.
+                        </p>
+                        <ul class="bullet-list">
+                            <li>Rebuilt background areas by cloning and rotoscoping out camera markers.</li>
+                            <li>Designed HUD layers, adjusting scale and timing to match camera motion tracks.</li>
+                            <li>Corrected color profiles between separate plates, blending foreground actors into custom backdrop elements.</li>
+                        </ul>
+                        <div class="project-meta">
+                            <div class="project-meta-item">
+                                <div class="meta-label">Responsibilities</div>
+                                <div class="meta-value">Chroma Keying, Planar Tracking, Color Profiling, Plate Cleanups</div>
+                            </div>
+                            <div class="project-meta-item">
+                                <div class="meta-label">Primary Tools</div>
+                                <div class="meta-value">Adobe After Effects, Premiere Pro, Photoshop</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-media">
+                        <!-- SINGLE VIDEO (FULL WIDTH) -->
+                        <div class="video-container">
+                            <video src="Vfx & Comp/VFX_COMP.mp4" controls preload="metadata"></video>
+                        </div>
+                        
+                        <div>
+                            <div class="snippets-title">Reel Highlights (Click to Expand)</div>
+                            <div class="snippets-grid">
+                                <div class="snippet-card" onclick="openModal(this)">
+                                    <img src="portfolio_assets/vfx_comp_1.png" alt="Planar track tracking marker layout">
+                                    <div class="snippet-label">Planar Tracking Test</div>
+                                </div>
+                                <div class="snippet-card" onclick="openModal(this)">
+                                    <img src="portfolio_assets/vfx_comp_2.png" alt="Final graded composite plate">
+                                    <div class="snippet-label">Composite Integration</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROJECT 5: WIPES & DIGITAL COSMETICS -->
+            <div class="project-block">
+                <div class="project-grid">
+                    <div class="project-info">
+                        <h3>Wipes & Digital Aging</h3>
+                        <p style="font-size: 13px; color: var(--gold-accent); margin-bottom: 10px;">Deadpool transition & character age layout</p>
+                        <p class="project-desc">
+                            Specialized visual effects pipelines exploring transition timings and localized actor facial manipulations.
+                        </p>
+                        <ul class="bullet-list">
+                            <li><strong>Deadpool Wipe:</strong> A custom splash screen transition. Built using rotoscoped mask shapes, ramp speed timings, and splash matte overlays.</li>
+                            <li><strong>De-Ageing:</strong> Attached skin-wrinkle textures to facial markers, tracking motion keyframes to map actor facial movements.</li>
+                        </ul>
+                        <div class="project-meta">
+                            <div class="project-meta-item">
+                                <div class="meta-label">Focus Areas</div>
+                                <div class="meta-value">Rotoscoping Transitions, Facial Mesh Tracking, Texture Blending</div>
+                            </div>
+                            <div class="project-meta-item">
+                                <div class="meta-label">Primary Tools</div>
+                                <div class="meta-value">Adobe After Effects</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-media">
+                        <!-- VIDEO GRID (SIDE BY SIDE) -->
+                        <div class="video-grid">
+                            <div class="video-container">
+                                <video src="Vfx & Comp/DeadpoolWipe.mp4" controls preload="metadata"></video>
+                            </div>
+                            <div class="video-container">
+                                <video src="Vfx & Comp/Ageing.mp4" controls preload="metadata"></video>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="snippets-title">Wipe & Ageing Snippets (Click to Expand)</div>
+                            <div class="snippets-grid">
+                                <div class="snippet-card" onclick="openModal(this)">
+                                    <img src="portfolio_assets/deadpool_wipe.png" alt="Deadpool screen wipe mask matte">
+                                    <div class="snippet-label">Screen Wipe Mattes</div>
+                                </div>
+                                <div class="snippet-card" onclick="openModal(this)">
+                                    <img src="portfolio_assets/ageing.png" alt="Digital de-aging beauty track">
+                                    <div class="snippet-label">Facial Ageing Map</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROJECT 6: ATMOSPHERIC & CG MATCHING -->
+            <div class="project-block">
+                <div class="project-grid">
+                    <div class="project-info">
+                        <h3>Atmosphere & CG Matching</h3>
+                        <p style="font-size: 13px; color: var(--gold-accent); margin-bottom: 10px;">Horror Lighting & Plate Integrations</p>
+                        <p class="project-desc">
+                            Creating atmospheric scenes and placing digital objects realistically on real plate layouts.
+                        </p>
+                        <ul class="bullet-list">
+                            <li><strong>Horror Scene:</strong> Engineered suspense lighting with custom spotlight glows, digital volume smoke layers, and heavy color profiles.</li>
+                            <li><strong>Action Plate (ActionHr):</strong> Blended particle sparks, muzzle flashes, and screen shake to accent raw scene impacts.</li>
+                            <li><strong>Animal Integration:</strong> Composited a CGI animal model, matching shadow direction and texture tones to the original grass ground plate.</li>
+                        </ul>
+                        <div class="project-meta">
+                            <div class="project-meta-item">
+                                <div class="meta-label">VFX Focus</div>
+                                <div class="meta-value">Smoke Composites, Spark Particles, Muzzle Flares, Shadow Maps</div>
+                            </div>
+                            <div class="project-meta-item">
+                                <div class="meta-label">Primary Tools</div>
+                                <div class="meta-value">After Effects, Premiere Pro</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-media">
+                        <!-- VIDEO GRID (SIDE BY SIDE & WRAPPED) -->
+                        <div class="video-grid">
+                            <div class="video-container">
+                                <video src="Vfx & Comp/Horror Scene.mp4" controls preload="metadata"></video>
+                            </div>
+                            <div class="video-container">
+                                <video src="Vfx & Comp/ActionHr.mp4" controls preload="metadata"></video>
+                            </div>
+                            <div class="video-container" style="grid-column: span 2; aspect-ratio: 21/9;">
+                                <video src="Vfx & Comp/Animal.mp4" controls preload="metadata"></video>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="snippets-title">Atmospheric Snippets (Click to Expand)</div>
+                            <div class="snippets-grid">
+                                <div class="snippet-card" onclick="openModal(this)">
+                                    <img src="portfolio_assets/horror_scene.png" alt="Horror dark suspense layout">
+                                    <div class="snippet-label">Horror Fog Composite</div>
+                                </div>
+                                <div class="snippet-card" onclick="openModal(this)">
+                                    <img src="portfolio_assets/action_hr.png" alt="Action scene spark plate">
+                                    <div class="snippet-label">Action Plate Sparks</div>
+                                </div>
+                                <div class="snippet-card" onclick="openModal(this)">
+                                    <img src="portfolio_assets/animal.png" alt="Animal ground shadow integration">
+                                    <div class="snippet-label">Animal Integration</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FILM & MOTION GRAPHICS -->
+    <section id="film" class="section" style="background-color: var(--bg-accent);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Film & Pre-Production</h2>
+                <p>Short film direction, screen branding posters, and detailed pre-production storyboards.</p>
+            </div>
+
+            <!-- PROJECT 7: BAIGAN KA DIL -->
+            <div class="project-block">
+                <div class="project-grid">
+                    <div class="project-info">
+                        <h3>Baigan Ka Dil</h3>
+                        <p style="font-size: 13px; color: var(--gold-accent); margin-bottom: 10px;">Student Short Film (2025)</p>
+                        <p class="project-desc">
+                            A live-action student short film. Managed director schedules, arranged structural scenes, and oversaw the full post-production editorial timeline.
+                        </p>
+                        <ul class="bullet-list">
+                            <li>Co-directed live-action setups, setting camera paths and managing actor spacing.</li>
+                            <li>Designed official title typography layouts and high-resolution marketing poster frames.</li>
+                            <li>Coordinated audio mixing, sound asset alignment, and final color correction sweeps.</li>
+                        </ul>
+                        <div class="project-meta">
+                            <div class="project-meta-item">
+                                <div class="meta-label">Responsibilities</div>
+                                <div class="meta-value">Co-Direction, Co-Production, Poster & Branding Layout, Sound Design</div>
+                            </div>
+                            <div class="project-meta-item">
+                                <div class="meta-label">Primary Tools</div>
+                                <div class="meta-value">Adobe Premiere Pro, Audition, Photoshop, Illustrator</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-media">
+                        <div>
+                            <div class="snippets-title">Graphic Posters (Click to Expand)</div>
+                            <div class="snippets-grid" style="grid-template-columns: 1fr 1fr;">
+                                <div class="snippet-card" style="aspect-ratio: 3/4;" onclick="openModal(this)">
+                                    <img src="portfolio_assets/baigan_ka_dil_poster.png" alt="Baigan Ka Dil Official film poster">
+                                    <div class="snippet-label">Baigan Ka Dil Poster</div>
+                                </div>
+                                <div class="snippet-card" style="aspect-ratio: 3/4;" onclick="openModal(this)">
+                                    <img src="portfolio_assets/poster_1350.png" alt="Alternate promotional layout">
+                                    <div class="snippet-label">Promotional Art</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROJECT 8: PRE-PRODUCTION STORYBOARDS -->
+            <div class="project-block">
+                <div class="project-grid">
+                    <div class="project-info">
+                        <h3>Drama Kaiku Mama</h3>
+                        <p style="font-size: 13px; color: var(--gold-accent); margin-bottom: 10px;">Pre-Production Storyboards & Poster Design</p>
+                        <p class="project-desc">
+                            Pre-production blueprints and artwork detailing narrative structures, camera plans, and character layouts.
+                        </p>
+                        <ul class="bullet-list">
+                            <li>Formulated the screenplay sequence sheets, highlighting camera movements, pan angles, and audio points (`DKM 1.pdf`).</li>
+                            <li>Created hand-drawn panel sketches to visualize scene pacing and character blocking.</li>
+                            <li>Created official promotional poster art layouts (`dkm_poster.png`) using digital painting.</li>
+                        </ul>
+                        <div class="project-meta">
+                            <div class="project-meta-item">
+                                <div class="meta-label">Focus Areas</div>
+                                <div class="meta-value">Storyboarding, Screenplay Planning, Scene Pacing, Graphic Layouts</div>
+                            </div>
+                            <div class="project-meta-item">
+                                <div class="meta-label">Primary Tools</div>
+                                <div class="meta-value">Photoshop, Hand-Drawn illustration, pypdf</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-media">
+                        <div>
+                            <div class="snippets-title">Pre-Production Storyboards (Click to Expand)</div>
+                            <div class="snippets-grid" style="grid-template-columns: 1.2fr 1fr;">
+                                <div class="snippet-card" style="aspect-ratio: 3/4;" onclick="openModal(this)">
+                                    <img src="portfolio_assets/dkm_poster.png" alt="Drama Kaiku Mama Official Artbook Poster">
+                                    <div class="snippet-label">Drama Kaiku Poster</div>
+                                </div>
+                                <div class="visual-grid" style="gap: 10px;">
+                                    <div class="snippet-card" onclick="openModal(this)">
+                                        <img src="portfolio_assets/storyboard_sketch_1.png" alt="Storyboard sketches DKM 1">
+                                        <div class="snippet-label">Storyboard Panels</div>
+                                    </div>
+                                    <div class="snippet-card" onclick="openModal(this)">
+                                        <img src="portfolio_assets/storyboard_sketch_2.png" alt="Storyboard details DKM 1">
+                                        <div class="snippet-label">Camera Spacing Detail</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROJECT 9: MOTION GRAPHICS & CREDITS -->
+            <div class="project-block">
+                <div class="project-grid">
+                    <div class="project-info">
+                        <h3>Motion Graphics & Renders</h3>
+                        <p style="font-size: 13px; color: var(--gold-accent); margin-bottom: 10px;">Dynamic Credit Reels & Text Graphics</p>
+                        <p class="project-desc">
+                            Showcases dynamic motion graphics templates, keyframe overlays, fire particles, and cast text designs.
+                        </p>
+                        <ul class="bullet-list">
+                            <li><strong>Reels & Cast:</strong> Programmed moving text, cast title transitions, and crew sequence slides for student productions.</li>
+                            <li><strong>Fire Render:</strong> Simulations of fire effects on dark backgrounds, matching color balances for visual effects integration.</li>
+                        </ul>
+                        <div class="project-meta">
+                            <div class="project-meta-item">
+                                <div class="meta-label">Focus Areas</div>
+                                <div class="meta-value">Title Cards, Particle Sims, Dynamic Typography Layouts</div>
+                            </div>
+                            <div class="project-meta-item">
+                                <div class="meta-label">Primary Tools</div>
+                                <div class="meta-value">After Effects, Premiere Pro, Blender</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-media">
+                        <!-- VIDEO GRID (2x2 GRID FOR 4 VIDEOS) -->
+                        <div class="video-grid">
+                            <div class="video-container">
+                                <video src="Film and Motion Graphics/CREWnew.mp4" controls preload="metadata"></video>
+                            </div>
+                            <div class="video-container">
+                                <video src="Film and Motion Graphics/Incredible cast.mp4" controls preload="metadata"></video>
+                            </div>
+                            <div class="video-container">
+                                <video src="Film and Motion Graphics/FireRender.mp4" controls preload="metadata"></video>
+                            </div>
+                            <div class="video-container">
+                                <video src="Film and Motion Graphics/Render.mp4" controls preload="metadata"></video>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="snippets-title">Graphic Highlights (Click to Expand)</div>
+                            <div class="snippets-grid">
+                                <div class="snippet-card" onclick="openModal(this)">
+                                    <img src="portfolio_assets/motion_graphics_cast.png" alt="Incredible Cast Text Overlay">
+                                    <div class="snippet-label">Cast Title Text</div>
+                                </div>
+                                <div class="snippet-card" onclick="openModal(this)">
+                                    <img src="portfolio_assets/motion_graphics_render.png" alt="Motion Graphics final render plate">
+                                    <div class="snippet-label">Credit Render Layout</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SKILLS MATRIX -->
+    <section id="skills" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Software & Skill Matrix</h2>
+                <p>Technical proficiencies and creative frameworks utilized across these projects.</p>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-title">Unreal Engine</div>
+                    <p class="skill-desc">Applied in **Dholavira 3D** for architecture placement, volumetric light rays, atmospheric fog layouts, and camera paths.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-title">Blender</div>
+                    <p class="skill-desc">Utilized for 3D modeling, node shaders, and water fluid particle simulation in the **Boat Render** project.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-title">After Effects</div>
+                    <p class="skill-desc">Core tool for compositing: chroma keying, face motion tracking, Deadpool transitions, and HUD element layers.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-title">Premiere Pro</div>
+                    <p class="skill-desc">Video editing assembly, dynamic sound design integrations, and credits sequence timings for film files.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-title">Photoshop</div>
+                    <p class="skill-desc">Digital storyboard sketching, texturing 3D environment plates, and graphic layout design for marketing posters.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-title">Illustrator</div>
+                    <p class="skill-desc">Creating scalable vector brand logos, title typography assets, and UI components for media campaigns.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-title">Unity</div>
+                    <p class="skill-desc">Applied during the 2023 University Game Jam to design, code, and compile a 2D game in 48 hours (Second Prize).</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-title">Figma & Canva</div>
+                    <p class="skill-desc">Used for interface layout grids, mockups, and typography structures for student media programs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT DETAILS -->
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-cta">
+                    <h2>Connect</h2>
+                    <p style="font-size: 15px; margin-bottom: 25px;">
+                        Thank you for reviewing my work. I am eager to apply my creative drive and technical skillset to support your creative production pipelines as an Animation & VFX intern.
+                    </p>
+                    <p style="font-size: 13.5px; color: var(--gold-accent);">
+                        Based in Hyderabad, India. Available for in-person or remote internships.
+                    </p>
+                </div>
+                
+                <div class="contact-info-list">
+                    <div class="contact-info-card">
+                        <div class="contact-card-icon">✉</div>
+                        <div>
+                            <div class="contact-card-label">Email</div>
+                            <div class="contact-card-value"><a href="mailto:manasmuddam03@gmail.com">manasmuddam03@gmail.com</a></div>
+                        </div>
+                    </div>
+                    <div class="contact-info-card">
+                        <div class="contact-card-icon">☎</div>
+                        <div>
+                            <div class="contact-card-label">Phone</div>
+                            <div class="contact-card-value">+91 7680938954</div>
+                        </div>
+                    </div>
+                    <div class="contact-info-card" style="grid-column: span 2;">
+                        <div class="contact-card-icon">🔗</div>
+                        <div>
+                            <div class="contact-card-label">LinkedIn Profile</div>
+                            <div class="contact-card-value"><a href="https://www.linkedin.com/in/manas-m-2102782b1" target="_blank">linkedin.com/in/manas-m-2102782b1</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>© 2026 Muddam Manas. All rights reserved. Creative Portfolio for Animation & VFX Internship.</p>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE MODAL FOR EXPANDING IMAGES -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="modal-close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImg">
+    </div>
+
+    <!-- JAVASCRIPT FOR INTERACTIVITY -->
+    <script>
+        // Modal Expansion Logic
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("modalImg");
+
+        function openModal(card) {
+            const img = card.querySelector("img");
+            modal.classList.add("active");
+            modalImg.src = img.src;
+            modalImg.alt = img.alt;
+            document.body.style.overflow = "hidden"; // disable background scrolling
+        }
+
+        function closeModal() {
+            modal.classList.remove("active");
+            document.body.style.overflow = "auto";
+        }
+
+        // Close modal on Escape keypress
+        document.addEventListener("keydown", function(e) {
+            if (e.key === "Escape") {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
