@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muddam Manas — Creative Portfolio</title>
+    <title>Manas M — Creative Portfolio</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -142,24 +142,26 @@
             color: var(--gold-accent);
             text-transform: uppercase;
             text-decoration: none;
+            white-space: nowrap;
         }
 
         .nav-links {
             display: flex;
-            gap: 30px;
+            gap: 20px;
             list-style: none;
         }
 
         .nav-links a {
             color: var(--text-muted);
             text-decoration: none;
-            font-size: 13.5px;
-            font-weight: 500;
+            font-size: 11.5px;
+            font-weight: 600;
             letter-spacing: 1px;
             text-transform: uppercase;
             transition: var(--transition);
             position: relative;
             padding: 5px 0;
+            white-space: nowrap;
         }
 
         .nav-links a::after {
@@ -561,7 +563,8 @@
             height: 100%;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: flex-start;
+            gap: 10px;
         }
 
         .skill-card:hover {
@@ -721,11 +724,64 @@
             color: var(--text-main);
         }
 
+        /* Experience Section Styles */
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .experience-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-left: 3px solid var(--gold-accent);
+            border-radius: 6px;
+            padding: 25px;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .experience-card:hover {
+            border-color: var(--border-glow);
+            box-shadow: 0 5px 20px rgba(197, 168, 128, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .experience-card-header {
+            margin-bottom: 12px;
+        }
+
+        .experience-org {
+            font-family: 'Outfit', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--gold-accent);
+            margin-bottom: 2px;
+        }
+
+        .experience-role {
+            font-family: 'Outfit', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-main);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .experience-desc {
+            font-size: 13.5px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
         /* Responsive Breakpoints */
         @media (max-width: 968px) {
             #about .about-grid,
             .project-grid,
             .project-grid-reverse,
+            .experience-grid,
             .contact-grid {
                 grid-template-columns: 1fr;
                 gap: 30px;
@@ -737,6 +793,14 @@
 
             .contact-info-list {
                 grid-template-columns: 1fr;
+            }
+
+            .contact-info-card {
+                grid-column: span 1 !important;
+            }
+
+            .nav-links {
+                display: none; /* Hide header navigation links on mobile/tablet viewports */
             }
 
             .hero-title {
@@ -767,10 +831,6 @@
                 aspect-ratio: 16/9;
             }
 
-            .nav-links {
-                display: none; /* Hide header navigation links on mobile viewports */
-            }
-
             .hero-title {
                 font-size: 34px;
             }
@@ -784,15 +844,15 @@
                 font-size: 26px;
                 margin-bottom: 20px;
             }
-
-            .contact-info-card {
-                grid-column: span 1 !important; /* Fix LinkedIn grid column span overflow */
-            }
         }
 
         @media (max-width: 480px) {
             .container {
                 padding: 0 15px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
             }
 
             .project-block {
@@ -844,12 +904,14 @@
     <!-- STICKY GLASSMORPHISM HEADER -->
     <header>
         <div class="container nav-container">
-            <a href="#hero" class="logo">Muddam Manas</a>
+            <a href="#hero" class="logo">Manas M</a>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#animation">Animation & 3D</a></li>
                 <li><a href="#vfx">VFX & Compositing</a></li>
-                <li><a href="#film">Film & Storyboard</a></li>
+                <li><a href="#film">Filmmaking</a></li>
+                <li><a href="#branding">Branding</a></li>
+                <li><a href="#experience">Experience</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -860,7 +922,7 @@
     <section id="hero">
         <div class="hero-content">
             <div class="hero-subtitle">Creative Portfolio</div>
-            <h1 class="hero-title">Muddam Manas</h1>
+            <h1 class="hero-title">Manas Muddam</h1>
             <p class="hero-tagline">Animation, VFX, and Filmmaking student specializing in narrative storytelling, environment design, and digital compositing pipelines.</p>
             <a href="#about" class="hero-btn">Explore Work</a>
         </div>
@@ -877,10 +939,10 @@
                 <div class="about-card">
                     <h2>Creative Profile</h2>
                     <p style="margin-bottom: 20px;">
-                        I am a B.Tech student in <strong>Computation and Media</strong> at <strong>Mahindra University</strong>. My passion lies in merging narrative design with technology, combining visual graphics, physical simulations, and post-production to create immersive storytelling.
+                        I am a B.Tech student in <strong>Computation and Media</strong> at <strong>Mahindra University</strong> with interests in animation, VFX, filmmaking, motion graphics, branding, and visual storytelling.
                     </p>
                     <p style="margin-bottom: 25px;">
-                        With experience leading small-crew short films, rigging game levels, and executing compositing sheets, I am seeking an internship to apply and grow my creative skillset in production pipelines.
+                        My focus lies in merging narrative design with technology, combining visual graphics, physical simulations, and post-production to build immersive visual experiences. I seek opportunities to apply my creative direction, design, and technical skills in dynamic studio pipelines.
                     </p>
                     <h3>Creative Skills</h3>
                     <div class="domain-tags">
@@ -923,7 +985,7 @@
         <div class="container">
             <div class="section-header">
                 <h2>Animation & 3D Modeling</h2>
-                <p>Environment designs, dynamic simulation renders, and student short film pipelines.</p>
+                <p>Environment designs, render exercises, and student animated projects.</p>
             </div>
 
             <!-- PROJECT 1: FALLEN GRACE -->
@@ -931,23 +993,24 @@
                 <div class="project-grid">
                     <div class="project-info">
                         <h3>Fallen Grace</h3>
-                        <p style="font-size: 13px; color: var(--gold-accent); margin-bottom: 10px;">Animated Short Film (2023)</p>
+                        <p style="font-size: 13px; color: var(--gold-accent); margin-bottom: 10px;">Animated Short Film (2024)</p>
                         <p class="project-desc">
-                            An original student animation. Built around character-centered storytelling, the film relies on painterly, hand-drawn environment details paired with high-contrast backlighting.
+                            A student animated short film created in Unreal Engine, focusing on storytelling, environment building, animation, and post-production.
                         </p>
                         <ul class="bullet-list">
-                            <li>Managed storyboarding, layout drafts, and keyframe layout in a two-member team.</li>
-                            <li>Executed final character animation sheets and vector background composites.</li>
-                            <li>Rendered digital camera motions and atmospheric timings in After Effects.</li>
+                            <li>Adapted and modified existing assets from Fab to fit the visual style of the film.</li>
+                            <li>Built environments, arranged scenes, and created lighting setups in Unreal Engine.</li>
+                            <li>Animated sequences, set up camera movements, and rendered final shots in Unreal Engine.</li>
+                            <li>Edited the final film and added voice-over, dubbing, and post-production elements.</li>
                         </ul>
                         <div class="project-meta">
                             <div class="project-meta-item">
-                                <div class="meta-label">Responsibilities</div>
-                                <div class="meta-value">Co-Direction, Storyboarding, Compositing, Character Animation</div>
+                                <div class="meta-label">Role</div>
+                                <div class="meta-value">Co-Director, Animator & Editor</div>
                             </div>
                             <div class="project-meta-item">
                                 <div class="meta-label">Primary Tools</div>
-                                <div class="meta-value">Adobe Photoshop, After Effects, Creative Suite</div>
+                                <div class="meta-value">Unreal Engine, Premiere Pro, DaVinci Resolve</div>
                             </div>
                         </div>
                     </div>
@@ -980,19 +1043,20 @@
                 <div class="project-grid">
                     <div class="project-info">
                         <h3>Dholavira 3D</h3>
-                        <p style="font-size: 13px; color: var(--gold-accent); margin-bottom: 10px;">Unreal Engine Historical Walkthrough</p>
+                        <p style="font-size: 13px; color: var(--gold-accent); margin-bottom: 10px;">Historical Environment Recreation</p>
                         <p class="project-desc">
-                            A historical 3D reconstruction layout of the ancient Harappan city Dholavira, focusing on accurate structural spacing, citadel gates, and complex ancient reservoir systems.
+                            A 3D recreation of the ancient city of Dholavira developed in Unreal Engine using historical references and architectural layouts.
                         </p>
                         <ul class="bullet-list">
-                            <li>Modelers built stone walls, modular block columns, and city layouts using site references.</li>
-                            <li>Engineered natural sunlight levels, shadows, and volumetric sand fog in Unreal Engine.</li>
-                            <li>Integrated responsive fluid layers inside reservoir channels to simulate ancient water depth.</li>
+                            <li>Created environment layouts inspired by the structure and planning of Dholavira.</li>
+                            <li>Built scenes using modular assets and environmental elements.</li>
+                            <li>Developed lighting and atmosphere to support the walkthrough experience.</li>
+                            <li>Produced cinematic walkthrough sequences showcasing the environment.</li>
                         </ul>
                         <div class="project-meta">
                             <div class="project-meta-item">
-                                <div class="meta-label">Focus Areas</div>
-                                <div class="meta-value">3D Environment Modeling, Lighting Design, Fluid Layers, Walkthroughs</div>
+                                <div class="meta-label">Role</div>
+                                <div class="meta-value">3D Environment Designer</div>
                             </div>
                             <div class="project-meta-item">
                                 <div class="meta-label">Primary Tools</div>
@@ -1034,28 +1098,29 @@
                 <div class="project-grid">
                     <div class="project-info">
                         <h3>3D Simulation Studies</h3>
-                        <p style="font-size: 13px; color: var(--gold-accent); margin-bottom: 10px;">Boat Render & Desert Environments</p>
+                        <p style="font-size: 13px; color: var(--gold-accent); margin-bottom: 10px;">Boat, Dune, & Fire Simulations</p>
                         <p class="project-desc">
-                            A set of rendering tasks detailing physics behavior, environment modeling, and lighting structures across challenging scenes.
+                            A collection of environment and rendering experiments focused on atmosphere, lighting, composition, and visual storytelling.
                         </p>
                         <ul class="bullet-list">
-                            <li><strong>Boat Render:</strong> Dynamic fluid particle generation simulating waves, matching wood textures, and styling volumetric surface fog.</li>
-                            <li><strong>Dune Environment:</strong> Sculpted desert landscapes using erosion nodes, layering fine sand materials, and setting light rays.</li>
+                            <li><strong>Boat Render:</strong> Customized a boat model and experimented with Blender fluid simulation.</li>
+                            <li><strong>Dune Environment:</strong> Created a desert scene in Unreal Engine with custom lighting and sound design.</li>
+                            <li><strong>Fire Simulation:</strong> Created a stylized fire simulation using Unreal Engine's Niagara particle system.</li>
                         </ul>
                         <div class="project-meta">
                             <div class="project-meta-item">
-                                <div class="meta-label">Focus Areas</div>
-                                <div class="meta-value">Fluid Simulations, Volume Shading, Dunes Sculpting</div>
+                                <div class="meta-label">Role</div>
+                                <div class="meta-value">3D Artist & Environment Designer</div>
                             </div>
                             <div class="project-meta-item">
                                 <div class="meta-label">Primary Tools</div>
-                                <div class="meta-value">Blender, Unreal Engine</div>
+                                <div class="meta-value">Blender, Unreal Engine, Premiere Pro</div>
                             </div>
                         </div>
                     </div>
                     
                     <div class="project-media">
-                        <!-- VIDEO GRID (SIDE BY SIDE) -->
+                        <!-- VIDEO GRID (3 VIDEOS LAYOUT) -->
                         <div class="video-grid">
                             <div class="video-container">
                                 <iframe src="https://www.youtube.com/embed/w2midnFoaZY" width="100%" height="100%" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -1063,18 +1128,25 @@
                             <div class="video-container">
                                 <iframe src="https://www.youtube.com/embed/3Y9EFkeoy5Q" width="100%" height="100%" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
+                            <div class="video-container" style="grid-column: span 2; aspect-ratio: 21/9;">
+                                <iframe src="https://www.youtube.com/embed/PLACEHOLDER_FIRE_SIM_ID" width="100%" height="100%" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
                         </div>
                         
                         <div>
                             <div class="snippets-title">Simulation Snippets (Click to Expand)</div>
-                            <div class="snippets-grid">
+                            <div class="snippets-grid" style="grid-template-columns: repeat(3, 1fr);">
                                 <div class="snippet-card" onclick="openModal(this)">
                                     <img src="portfolio_assets/boat_render.png" alt="Wooden boat simulation render">
-                                    <div class="snippet-label">Boat Render Detail</div>
+                                    <div class="snippet-label">Boat Render</div>
                                 </div>
                                 <div class="snippet-card" onclick="openModal(this)">
                                     <img src="portfolio_assets/dune_render.png" alt="Dune environment texture render">
                                     <div class="snippet-label">Dune Environment</div>
+                                </div>
+                                <div class="snippet-card" onclick="openModal(this)">
+                                    <img src="portfolio_assets/fire_simulation.png" alt="Stylized fire simulation using Unreal Engine Niagara particle system">
+                                    <div class="snippet-label">Fire Simulation</div>
                                 </div>
                             </div>
                         </div>
@@ -1090,7 +1162,7 @@
         <div class="container">
             <div class="section-header">
                 <h2>VFX & Compositing</h2>
-                <p>Motion tracking, chroma keying, digital cosmetic timing, and environmental integrations.</p>
+                <p>Motion tracking, keying, and visual effects compositing practice.</p>
             </div>
 
             <!-- PROJECT 4: VFX COMPOSITING REEL -->
@@ -1100,21 +1172,21 @@
                         <h3>VFX Compositing Reel</h3>
                         <p style="font-size: 13px; color: var(--gold-accent); margin-bottom: 10px;">Composite Plate Breakdown</p>
                         <p class="project-desc">
-                            A breakdown of cleanups and overlay composites, representing the integration of motion elements on active footage.
+                            A collection of compositing exercises focused on cleaning up footage and combining multiple visual elements.
                         </p>
                         <ul class="bullet-list">
-                            <li>Rebuilt background areas by cloning and rotoscoping out camera markers.</li>
-                            <li>Designed HUD layers, adjusting scale and timing to match camera motion tracks.</li>
-                            <li>Corrected color profiles between separate plates, blending foreground actors into custom backdrop elements.</li>
+                            <li>Practiced rotoscoping, masking, and paint-outs to remove tracking markers from video clips.</li>
+                            <li>Placed graphic HUD overlays onto footage using motion tracking data.</li>
+                            <li>Experimented with color matching to blend foreground subjects with background plates.</li>
                         </ul>
                         <div class="project-meta">
                             <div class="project-meta-item">
-                                <div class="meta-label">Responsibilities</div>
-                                <div class="meta-value">Chroma Keying, Planar Tracking, Color Profiling, Plate Cleanups</div>
+                                <div class="meta-label">Role</div>
+                                <div class="meta-value">VFX Compositor</div>
                             </div>
                             <div class="project-meta-item">
                                 <div class="meta-label">Primary Tools</div>
-                                <div class="meta-value">Adobe After Effects, Premiere Pro, Photoshop</div>
+                                <div class="meta-value">Adobe After Effects, Photoshop</div>
                             </div>
                         </div>
                     </div>
@@ -1146,23 +1218,23 @@
             <div class="project-block">
                 <div class="project-grid">
                     <div class="project-info">
-                        <h3>Wipes & Digital Aging</h3>
+                        <h3>Wipes & Digital Ageing</h3>
                         <p style="font-size: 13px; color: var(--gold-accent); margin-bottom: 10px;">Deadpool transition & character age layout</p>
                         <p class="project-desc">
-                            Specialized visual effects pipelines exploring transition timings and localized actor facial manipulations.
+                            A collection of VFX experiments exploring transitions and digital character modifications.
                         </p>
                         <ul class="bullet-list">
-                            <li><strong>Deadpool Wipe:</strong> A custom splash screen transition. Built using rotoscoped mask shapes, ramp speed timings, and splash matte overlays.</li>
-                            <li><strong>De-Ageing:</strong> Attached skin-wrinkle textures to facial markers, tracking motion keyframes to map actor facial movements.</li>
+                            <li><strong>Deadpool Wipe:</strong> Created a cinematic scene transition using masking and compositing.</li>
+                            <li><strong>Digital Ageing:</strong> Used photo manipulation to simulate age details while preserving identity.</li>
                         </ul>
                         <div class="project-meta">
                             <div class="project-meta-item">
-                                <div class="meta-label">Focus Areas</div>
-                                <div class="meta-value">Rotoscoping Transitions, Facial Mesh Tracking, Texture Blending</div>
+                                <div class="meta-label">Role</div>
+                                <div class="meta-value">VFX Artist & Editor</div>
                             </div>
                             <div class="project-meta-item">
                                 <div class="meta-label">Primary Tools</div>
-                                <div class="meta-value">Adobe After Effects</div>
+                                <div class="meta-value">Photoshop, Premiere Pro</div>
                             </div>
                         </div>
                     </div>
@@ -1186,7 +1258,7 @@
                                     <div class="snippet-label">Screen Wipe Mattes</div>
                                 </div>
                                 <div class="snippet-card" onclick="openModal(this)">
-                                    <img src="portfolio_assets/ageing.png" alt="Digital de-aging beauty track">
+                                    <img src="portfolio_assets/ageing.png" alt="Digital de-ageing beauty track">
                                     <div class="snippet-label">Facial Ageing Map</div>
                                 </div>
                             </div>
@@ -1202,21 +1274,21 @@
                         <h3>Atmosphere & CG Matching</h3>
                         <p style="font-size: 13px; color: var(--gold-accent); margin-bottom: 10px;">Horror Lighting & Plate Integrations</p>
                         <p class="project-desc">
-                            Creating atmospheric scenes and placing digital objects realistically on real plate layouts.
+                            A set of VFX exercises focused on integrating digital elements into live-action footage.
                         </p>
                         <ul class="bullet-list">
-                            <li><strong>Horror Scene:</strong> Engineered suspense lighting with custom spotlight glows, digital volume smoke layers, and heavy color profiles.</li>
-                            <li><strong>Action Plate (ActionHr):</strong> Blended particle sparks, muzzle flashes, and screen shake to accent raw scene impacts.</li>
-                            <li><strong>Animal Integration:</strong> Composited a CGI animal model, matching shadow direction and texture tones to the original grass ground plate.</li>
+                            <li><strong>Horror Scene:</strong> Added custom lighting and smoke effects to build scene atmosphere.</li>
+                            <li><strong>ActionHr:</strong> Integrated sparks and flash effects timed to the original video clip.</li>
+                            <li><strong>Animal Scene:</strong> Composited myself and another subject into a scene from Animal, matching scale, positioning, and color for consistency.</li>
                         </ul>
                         <div class="project-meta">
                             <div class="project-meta-item">
-                                <div class="meta-label">VFX Focus</div>
-                                <div class="meta-value">Smoke Composites, Spark Particles, Muzzle Flares, Shadow Maps</div>
+                                <div class="meta-label">Role</div>
+                                <div class="meta-value">VFX Artist</div>
                             </div>
                             <div class="project-meta-item">
                                 <div class="meta-label">Primary Tools</div>
-                                <div class="meta-value">After Effects, Premiere Pro</div>
+                                <div class="meta-value">Adobe After Effects, Premiere Pro</div>
                             </div>
                         </div>
                     </div>
@@ -1247,8 +1319,8 @@
                                     <div class="snippet-label">Action Plate Sparks</div>
                                 </div>
                                 <div class="snippet-card" onclick="openModal(this)">
-                                    <img src="portfolio_assets/animal.png" alt="Animal ground shadow integration">
-                                    <div class="snippet-label">Animal Integration</div>
+                                    <img src="portfolio_assets/animal.png" alt="Composite plate from the film Animal">
+                                    <div class="snippet-label">Animal Scene</div>
                                 </div>
                             </div>
                         </div>
@@ -1263,8 +1335,8 @@
     <section id="film" class="section" style="background-color: var(--bg-accent);">
         <div class="container">
             <div class="section-header">
-                <h2>Film & Pre-Production</h2>
-                <p>Short film direction, screen branding posters, and detailed pre-production storyboards.</p>
+                <h2>Film & Production</h2>
+                <p>Short film direction, editorial workflows, and promotional poster designs.</p>
             </div>
 
             <!-- PROJECT 7: BAIGAN KA DIL -->
@@ -1274,21 +1346,22 @@
                         <h3>Baigan Ka Dil</h3>
                         <p style="font-size: 13px; color: var(--gold-accent); margin-bottom: 10px;">Student Short Film (2025)</p>
                         <p class="project-desc">
-                            A live-action student short film. Managed director schedules, arranged structural scenes, and oversaw the full post-production editorial timeline.
+                            A live-action student short film where I contributed across direction, post-production, motion graphics, and visual effects.
                         </p>
                         <ul class="bullet-list">
-                            <li>Co-directed live-action setups, setting camera paths and managing actor spacing.</li>
-                            <li>Designed official title typography layouts and high-resolution marketing poster frames.</li>
-                            <li>Coordinated audio mixing, sound asset alignment, and final color correction sweeps.</li>
+                            <li>Co-directed the project and contributed to production planning.</li>
+                            <li>Created title graphics and motion design elements.</li>
+                            <li>Worked on visual effects and post-production tasks.</li>
+                            <li>Assisted with editing, sound integration, and final delivery.</li>
                         </ul>
                         <div class="project-meta">
                             <div class="project-meta-item">
-                                <div class="meta-label">Responsibilities</div>
-                                <div class="meta-value">Co-Direction, Co-Production, Poster & Branding Layout, Sound Design</div>
+                                <div class="meta-label">Role</div>
+                                <div class="meta-value">Co-Director, VFX Artist & Motion Graphics Designer</div>
                             </div>
                             <div class="project-meta-item">
                                 <div class="meta-label">Primary Tools</div>
-                                <div class="meta-value">Adobe Premiere Pro, Audition, Photoshop, Illustrator</div>
+                                <div class="meta-value">Premiere Pro, After Effects, Photoshop</div>
                             </div>
                         </div>
                     </div>
@@ -1311,49 +1384,39 @@
                 </div>
             </div>
 
-            <!-- PROJECT 8: PRE-PRODUCTION STORYBOARDS -->
+            <!-- PROJECT 8: PROMOTIONAL POSTER DESIGN -->
             <div class="project-block">
                 <div class="project-grid">
                     <div class="project-info">
                         <h3>Drama Kaiku Mama</h3>
-                        <p style="font-size: 13px; color: var(--gold-accent); margin-bottom: 10px;">Pre-Production Storyboards & Poster Design</p>
+                        <p style="font-size: 13px; color: var(--gold-accent); margin-bottom: 10px;">Promotional Poster Design (2024)</p>
                         <p class="project-desc">
-                            Pre-production blueprints and artwork detailing narrative structures, camera plans, and character layouts.
+                            Designed the promotional poster and title layout for the student film Drama Kaiku Mama.
                         </p>
                         <ul class="bullet-list">
-                            <li>Formulated the screenplay sequence sheets, highlighting camera movements, pan angles, and audio points (`DKM 1.pdf`).</li>
-                            <li>Created hand-drawn panel sketches to visualize scene pacing and character blocking.</li>
-                            <li>Created official promotional poster art layouts (`dkm_poster.png`) using digital painting.</li>
+                            <li>Created and painted the main film poster using digital brushes and color adjustments.</li>
+                            <li>Designed custom typography for the film's title to match its mood.</li>
+                            <li>Prepared layouts and image files for print and online sharing.</li>
                         </ul>
                         <div class="project-meta">
                             <div class="project-meta-item">
-                                <div class="meta-label">Focus Areas</div>
-                                <div class="meta-value">Storyboarding, Screenplay Planning, Scene Pacing, Graphic Layouts</div>
+                                <div class="meta-label">Role</div>
+                                <div class="meta-value">Graphic Designer</div>
                             </div>
                             <div class="project-meta-item">
                                 <div class="meta-label">Primary Tools</div>
-                                <div class="meta-value">Photoshop, Hand-Drawn illustration, pypdf</div>
+                                <div class="meta-value">Adobe Photoshop, Digital Illustration</div>
                             </div>
                         </div>
                     </div>
                     
                     <div class="project-media">
                         <div>
-                            <div class="snippets-title">Pre-Production Storyboards (Click to Expand)</div>
-                            <div class="snippets-grid" style="grid-template-columns: 1.2fr 1fr;">
-                                <div class="snippet-card" style="aspect-ratio: 3/4;" onclick="openModal(this)">
-                                    <img src="portfolio_assets/dkm_poster.png" alt="Drama Kaiku Mama Official Artbook Poster">
+                            <div class="snippets-title">Promotional Poster (Click to Expand)</div>
+                            <div class="snippets-grid" style="grid-template-columns: 1fr;">
+                                <div class="snippet-card" style="aspect-ratio: 3/4; max-width: 300px; margin: 0 auto;" onclick="openModal(this)">
+                                    <img src="portfolio_assets/dkm_poster.png" alt="Drama Kaiku Mama Official Promotional Poster">
                                     <div class="snippet-label">Drama Kaiku Poster</div>
-                                </div>
-                                <div class="visual-grid" style="gap: 10px;">
-                                    <div class="snippet-card" onclick="openModal(this)">
-                                        <img src="portfolio_assets/storyboard_sketch_1.png" alt="Storyboard sketches DKM 1">
-                                        <div class="snippet-label">Storyboard Panels</div>
-                                    </div>
-                                    <div class="snippet-card" onclick="openModal(this)">
-                                        <img src="portfolio_assets/storyboard_sketch_2.png" alt="Storyboard details DKM 1">
-                                        <div class="snippet-label">Camera Spacing Detail</div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1368,20 +1431,20 @@
                         <h3>Motion Graphics & Renders</h3>
                         <p style="font-size: 13px; color: var(--gold-accent); margin-bottom: 10px;">Dynamic Credit Reels & Text Graphics</p>
                         <p class="project-desc">
-                            Showcases dynamic motion graphics templates, keyframe overlays, fire particles, and cast text designs.
+                            A collection of basic motion graphics and render experiments, focusing on text animations and visual assets.
                         </p>
                         <ul class="bullet-list">
-                            <li><strong>Reels & Cast:</strong> Programmed moving text, cast title transitions, and crew sequence slides for student productions.</li>
-                            <li><strong>Fire Render:</strong> Simulations of fire effects on dark backgrounds, matching color balances for visual effects integration.</li>
+                            <li><strong>Reels & Cast:</strong> Created animated text sequences, credit rolls, and title transitions for student films.</li>
+                            <li><strong>Fire Render:</strong> Practiced generating fire effects on dark backgrounds for visual compositing tests.</li>
                         </ul>
                         <div class="project-meta">
                             <div class="project-meta-item">
-                                <div class="meta-label">Focus Areas</div>
-                                <div class="meta-value">Title Cards, Particle Sims, Dynamic Typography Layouts</div>
+                                <div class="meta-label">Role</div>
+                                <div class="meta-value">Motion Designer & Editor</div>
                             </div>
                             <div class="project-meta-item">
                                 <div class="meta-label">Primary Tools</div>
-                                <div class="meta-value">After Effects, Premiere Pro, Blender</div>
+                                <div class="meta-value">Adobe After Effects, Premiere Pro, Blender</div>
                             </div>
                         </div>
                     </div>
@@ -1423,6 +1486,114 @@
         </div>
     </section>
 
+    <!-- BRANDING & DESIGN -->
+    <section id="branding" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Branding & Design</h2>
+                <p>Logo design, visual identity guidelines, and graphic design projects.</p>
+            </div>
+
+            <!-- PROJECT 10: COXIST AI -->
+            <div class="project-block">
+                <div class="project-grid">
+                    <div class="project-info">
+                        <h3>COXIST AI</h3>
+                        <p style="font-size: 13px; color: var(--gold-accent); margin-bottom: 10px;">Logo & Brand Identity (2025)</p>
+                        <p class="project-desc">
+                            A freelance branding project for a technology startup focused on creating a modern and distinctive visual identity.
+                        </p>
+                        <ul class="bullet-list">
+                            <li>Designed the primary logo and visual identity system.</li>
+                            <li>Developed supporting brand assets and presentation materials.</li>
+                            <li>Explored typography, color, and visual consistency across applications.</li>
+                        </ul>
+                        <div class="project-meta">
+                            <div class="project-meta-item">
+                                <div class="meta-label">Role</div>
+                                <div class="meta-value">Lead Graphic Designer</div>
+                            </div>
+                            <div class="project-meta-item">
+                                <div class="meta-label">Primary Tools</div>
+                                <div class="meta-value">Adobe Illustrator, Photoshop</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-media">
+                        <!-- Featured Large Brand Mockup (iOS App UI) -->
+                        <div class="video-container snippet-card" onclick="openModal(this)" style="cursor: pointer; aspect-ratio: 16/9; margin-bottom: 20px;">
+                            <img src="portfolio_assets/coxist_iphone.png" alt="COXIST AI iOS App UI Mockup" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: var(--transition);">
+                            <div class="snippet-label">Featured: iOS App UI (Click to Expand)</div>
+                        </div>
+
+                        <div>
+                            <div class="snippets-title">Additional Brand Mockups (Click to Expand)</div>
+                            <div class="snippets-grid" style="grid-template-columns: repeat(3, 1fr); gap: 12px;">
+                                <div class="snippet-card" onclick="openModal(this)">
+                                    <img src="portfolio_assets/coxist_icon.png" alt="COXIST AI App Icon Mockup on paper">
+                                    <div class="snippet-label">App Icon</div>
+                                </div>
+                                <div class="snippet-card" onclick="openModal(this)">
+                                    <img src="portfolio_assets/coxist_sign.jpg" alt="COXIST AI Corporate Signage Mockup on building facade">
+                                    <div class="snippet-label">Signage</div>
+                                </div>
+                                <div class="snippet-card" onclick="openModal(this)">
+                                    <img src="portfolio_assets/coxist_billboard.jpg" alt="COXIST AI Outdoor Billboard Mockup on concrete wall">
+                                    <div class="snippet-label">Billboard</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section" style="background-color: var(--bg-accent);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Experience</h2>
+                <p>Organizations and creative roles I have undertaken.</p>
+            </div>
+            
+            <div class="experience-grid">
+                <div class="experience-card">
+                    <div class="experience-card-header">
+                        <div class="experience-org">Aether, Mahindra University</div>
+                        <div class="experience-role">Design Head</div>
+                    </div>
+                    <p class="experience-desc">Led visual branding and promotional design for the university's annual cultural festival, managing design assets and coordination.</p>
+                </div>
+                
+                <div class="experience-card">
+                    <div class="experience-card-header">
+                        <div class="experience-org">Angelic NGO</div>
+                        <div class="experience-role">Graphic Design Intern</div>
+                    </div>
+                    <p class="experience-desc">Designed social media creatives, awareness posters, and digital campaign assets.</p>
+                </div>
+                
+                <div class="experience-card">
+                    <div class="experience-card-header">
+                        <div class="experience-org">7 Screens, Mahindra University</div>
+                        <div class="experience-role">Vice Head</div>
+                    </div>
+                    <p class="experience-desc">Assisted in organizing film-related activities, screenings, and creative initiatives.</p>
+                </div>
+                
+                <div class="experience-card">
+                    <div class="experience-card-header">
+                        <div class="experience-org">Freelance</div>
+                        <div class="experience-role">Graphic Designer</div>
+                    </div>
+                    <p class="experience-desc">Worked on branding, logo design, and visual identity projects for various clients.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- SKILLS MATRIX -->
     <section id="skills" class="section">
         <div class="container">
@@ -1442,7 +1613,7 @@
                 </div>
                 <div class="skill-card">
                     <div class="skill-title">After Effects</div>
-                    <p class="skill-desc">Chroma keying, planar motion tracking, digital cosmetic mapping, rotoscoping, custom transition layouts, and title animation.</p>
+                    <p class="skill-desc">Motion graphics, visual effects experiments, compositing, transitions, and title animation.</p>
                 </div>
                 <div class="skill-card">
                     <div class="skill-title">Premiere Pro</div>
@@ -1475,7 +1646,7 @@
                 <div class="contact-cta">
                     <h2>Connect</h2>
                     <p style="font-size: 15px; margin-bottom: 25px;">
-                        Thank you for reviewing my work. I am eager to apply my creative drive and technical skillset to support your production pipelines—whether in creative direction, graphic design, animation, editing, or visual effects.
+                        Thank you for visiting my portfolio. I'm always excited to learn, collaborate, and explore new creative opportunities. Feel free to reach out.
                     </p>
                     <p style="font-size: 13.5px; color: var(--gold-accent);">
                         Based in Hyderabad, India. Available for in-person or remote internships.
@@ -1512,7 +1683,7 @@
     <!-- FOOTER -->
     <footer>
         <div class="container">
-            <p>© 2026 Muddam Manas. All rights reserved.</p>
+            <p>© 2026 Manas M. All rights reserved.</p>
         </div>
     </footer>
 
